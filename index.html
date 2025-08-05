@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Samraddhi 💖</title>
+  <style>
+    .hearts {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      width: 30px;
+      height: 30px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Red_heart_icon.svg/1024px-Red_heart_icon.svg.png') no-repeat center;
+      background-size: contain;
+      animation: rise 10s infinite;
+    }
+
+    .heart:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+    .heart:nth-child(2) {
+      left: 50%;
+      animation-delay: 2s;
+    }
+    .heart:nth-child(3) {
+      left: 80%;
+      animation-delay: 4s;
+    }
+
+    @keyframes rise {
+      0% { bottom: -50px; opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1); }
+      100% { bottom: 100%; opacity: 0; transform: scale(0.7); }
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to right, #ffeaf4, #d2f4ff);
+      transition: opacity 1s ease;
+      padding: 20px;
+    }
+    .active {
+      display: flex;
+      opacity: 1;
+      z-index: 10;
+    }
+    h1, h2 {
+      color: #ff69b4;
+    }
+    p {
+      font-size: 1.2em;
+      color: #333;
+      max-width: 600px;
+    }
+    button {
+      padding: 10px 25px;
+      margin-top: 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: white;
+    }
+    .disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    img {
+      border-radius: 12px;
+      max-width: 300px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+    
+  </style>
+</head>
+
+<div class="hearts">
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+</div>
+
+<body>
+
+<audio id="song" loop muted></audio>
+  <source src="song.mp3" type="audio/mpeg">
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("song");
+    audio.src = "song.mp3";
+    document.body.addEventListener("click", () => {
+      audio.muted = false;
+      audio.play();
+    }, { once: true });
+  });
+  </script>
+</audio>
+
+<div class="slide active" id="slide1">
+  <div>
+    <img src="samraddhi.jpg" alt="Samraddhi">
+    <h1>🌸 Happy Friendship Day, Samraddhi 🌸</h1>
+    <p>From the bottom of my heart... you're still my most special person 💗</p>
+    <button onclick="nextSlide()">Next →</button>
+  </div>
+</div>
+
+<div class="slide" id="slide2">
+  <div>
+    <h2>💔 I'm So Sorry...</h2>
+    <p>
+      I know I’ve hurt you—by being late, by not showing up when you needed me, by letting you wish me first.  
+      You deserved better. I'm truly sorry, more than words can say.
+    </p>
+    <button onclick="nextSlide()">Next →</button>
+  </div>
+</div>
+
+<div class="slide" id="slide3">
+  <div>
+    <h2>🫂 I Hope You Feel Safe</h2>
+    <p>
+      I know you're in pain right now. I just want you to feel wrapped in comfort and care.  
+      You're strong, but you shouldn't have to carry everything alone. I’m here, gently and lovingly.
+    </p>
+    <button onclick="nextSlide()">Next →</button>
+  </div>
+</div>
+
+<div class="slide" id="slide4">
+  <div>
+    <h2>⏳ Will You Forgive Me?</h2>
+    <p>
+      I’ve messed up. And I know you’ve broken the friendship because of it.  
+      I understand. But I truly want to fix things… to rebuild what we had.  
+      Please let me make it right. Not with just promises—but by proving it.
+    </p>
+    <button onclick="showFinal()">Forgive Me ❤️</button>
+    <button class="disabled">Not Now 😔</button>
+  </div>
+</div>
+
+<div class="slide" id="slide5">
+  <div>
+    <h2>🤗 Thank You for Forgiving Me</h2>
+    <p>
+      Your smile means the world to me.  
+      I’m sorry for every tear, every hurtful moment, and every broken promise.  
+      From this moment onward, I will do everything to never make you cry again.  
+      I love you. I respect you. And I’ll prove it, one day at a time.  
+      Happy Friendship Day, my forever person.
+    </p>
+  </div>
+</div>
+
+<script>
+  let current = 1;
+  function nextSlide() {
+    document.getElementById('slide' + current).classList.remove('active');
+    current++;
+    document.getElementById('slide' + current).classList.add('active');
+  }
+  function showFinal() {
+    document.getElementById('slide4').classList.remove('active');
+    document.getElementById('slide5').classList.add('active');
+  }
+</script>
+
+</body>
+</html>
